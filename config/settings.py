@@ -128,7 +128,17 @@ USE_TZ = True
 STATIC_URL = "/static/"
 STATIC_ROOT = BASE_DIR / "staticfiles"
 
+DEFAULT_FILE_STORAGE = "django.core.files.storage.FileSystemStorage"
+STATIC_FILE_STORAGE = "whitenoise.storage.StaticFilesStorage"
 
+STORAGES = {
+    'default':{
+        "BACKEND":"django.core.files.storage.FileSystemStorage"
+    },
+    'staticfiles':{
+            "BACKEND":"whitenoise.storage.StaticFilesStorage"
+        }
+}
 # Email
 # https://docs.djangoproject.com/en/6.1/topics/email/#topic-email-configuration
 
